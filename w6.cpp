@@ -36,10 +36,22 @@ int main(int argc, char** argv) {
 	std::cout << "Reading data from the file\n";
 	std::cout << "====================================\n";
 	{
-		// TODO: Read from the file one record at a time and create a product.
+        // Student Portion
+		// Read from the file one record at a time and create a product.
 		//   - Print a message before starting processing a product.
 		//   - Add the product to the vector "products", created above.
 		//   - Handle any thrown exceptions and print the message.
+        w6::iProduct* temp = nullptr;
+        do {
+            std::cout << "Processing record";
+            try {
+                temp = w6::readProduct(productList);
+                products.push_back(temp);
+            }
+            catch (std::string err) {
+                std::cout << err << std::endl;
+            };
+        } while (temp != nullptr);
 
 	}
 	std::cout << "====================================\n";
