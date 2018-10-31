@@ -7,6 +7,7 @@
 // with exception of the parts provided to me by my professor
 
 #include <string>
+#include <cctype>
 #include "ProdUtil.h"
 #include "Product.h"
 #include "TaxableProduct.h"
@@ -14,25 +15,31 @@
 namespace w6 {
     std::ostream& operator<<(std::ostream& os, const iProduct& src) {
         src.display(os);
+        os << std::endl;
+        return os;
     }
 
     iProduct* readProduct(std::ifstream& ifs) {
-        if (ifs.peek() != '\n') {
-            int prodNum;
+        char c = ifs.peek();
+        if (c != EOF) {
+            std::string prodNum;
             double price;
             ifs >> prodNum >> price;
-            char c = ifs.peek();
-            // number
-            if ('0' <= c && c <= '9') {
-                return new Product(prodNum, price);
-            // valid tax code
-            } else if (c == 'H' || c == 'P') {
-                return new TaxableProduct(prodNum, price, c);
-            // invalid tax code throw error
-            } else {
+            ifs.ignore(); // ignores whitespace after price;
+            c = ifs.peek();
+            if (std::isalpha(c)) {
+                ifs.ignore(256,'\n');
+                // valid tax code
+                if (c == 'H' || c == 'P')
+                    return new TaxableProduct(prodNum, price, c);
+                // invalid tax code throw error
                 std::string err = "Unrecognizeable Tax Code!";
                 throw err;
+            } else {
+                return new Product(prodNum, price);
             }
+        } else {
+            return nullptr;
         }
     }
 }
