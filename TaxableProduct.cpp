@@ -23,7 +23,7 @@ namespace w6 {
 
     // returns price
     double TaxableProduct::getPrice() const {
-        Product::getPrice();
+        return Product::getPrice();
     }
 
     const char* TaxableProduct::getTaxType() const {
