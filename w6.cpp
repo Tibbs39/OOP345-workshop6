@@ -42,15 +42,22 @@ int main(int argc, char** argv) {
 		//   - Add the product to the vector "products", created above.
 		//   - Handle any thrown exceptions and print the message.
         w6::iProduct* temp = nullptr;
+        int i = 1;
         do {
-            std::cout << "Processing record";
+            std::cout << "Processing record " << i << ": ";
             try {
                 temp = w6::readProduct(productList);
-                products.push_back(temp);
+                if (temp) {
+                    products.push_back(temp);
+                    std::cout << "done!" << std::endl;
+                } else {
+                    std::cout << "no such record! Reached the end of the file!" << std::endl;
+                }
             }
             catch (std::string err) {
                 std::cout << err << std::endl;
             };
+            ++i; 
         } while (temp != nullptr);
 
 	}
