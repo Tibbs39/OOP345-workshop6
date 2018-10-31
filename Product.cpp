@@ -21,6 +21,6 @@ namespace w6 {
     }
 
     void Product::display(std::ostream& os) const {
-        os << std::setw(16) << prodCode << std::setw(16) << getPrice();
+        os << std::setw(16) << prodCode << std::setw(16) << price;
     }
 }
