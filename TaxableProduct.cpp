@@ -11,7 +11,7 @@
 
 namespace w6 {
     // declare our static class variable
-    const double TaxableProduct::taxRate[] = { 13, 8 };
+    const double TaxableProduct::taxRate[] = { 1.13, 1.08 };
 
     // constructor
     TaxableProduct::TaxableProduct(std::string prodNum, double price, char taxCode) : Product(prodNum, price) {
@@ -23,7 +23,7 @@ namespace w6 {
 
     // returns price
     double TaxableProduct::getPrice() const {
-        return Product::getPrice();
+        return Product::getPrice() * taxRate[taxType];
     }
 
     const char* TaxableProduct::getTaxType() const {
