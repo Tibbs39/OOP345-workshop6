@@ -14,7 +14,7 @@ namespace w6 {
     const double TaxableProduct::taxRate[] = { 13, 8 };
 
     // constructor
-    TaxableProduct::TaxableProduct(int num, double price, char taxCode) : Product(num, price) {
+    TaxableProduct::TaxableProduct(std::string prodNum, double price, char taxCode) : Product(prodNum, price) {
         if (taxCode == 'H') 
             taxType = 0;
         else if (taxCode == 'P') 

@@ -17,7 +17,7 @@ namespace w6 {
 
         public:
             // constructor
-            TaxableProduct(int, double, char);
+            TaxableProduct(std::string, double, char);
             // return price
             double getPrice() const;
             // returns a string of the tax type

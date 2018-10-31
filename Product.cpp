@@ -11,9 +11,9 @@
 
 namespace w6 {
     // constructor
-    Product::Product(int num, double price) {
+    Product::Product(std::string prodNum, double price) {
         this->price = price;
-        this->prodCode = num;
+        this->prodCode = prodNum;
     }
 
     double Product::getPrice() const {
@@ -21,6 +21,6 @@ namespace w6 {
     }
 
     void Product::display(std::ostream& os) const {
-        os << std::setw(16) << price << std::setw(16) << getPrice();
+        os << std::setw(16) << prodCode << std::setw(16) << getPrice();
     }
 }

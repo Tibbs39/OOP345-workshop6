@@ -10,15 +10,16 @@
 #define W6_PRODUCT_H
 #include "iProduct.h"
 #include <iostream>
+#include <string>
 
 namespace w6 {
     class Product : public iProduct {
         double price;
-        int prodCode;
+        std::string prodCode;
 
         public:
             // constructor
-            Product(int, double);
+            Product(std::string, double);
             // return price
             double getPrice() const;
             // display
