@@ -1,0 +1,13 @@
+// Name:  Kenneth Yue
+// Seneca Student ID: 127932176
+// Seneca email:  kyue3@myseneca.ca
+// Date of completion: Oct 31, 2018
+//
+// I confirm that the content of this file is created by me,
+// with exception of the parts provided to me by my professor
+
+This workshop has refreshed me on how to work with polymorphic classes,
+and handling errors using try/catch method. I have also learned the basics 
+of how to utilize an STL vector. While the STL container class may be more 
+convienent, I wonder if it could possibly be more efficent to implement 
+your own container class if it can better fit the needs of your design.
