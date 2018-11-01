@@ -21,7 +21,7 @@ namespace w6 {
 
     iProduct* readProduct(std::ifstream& ifs) {
         char c = ifs.peek();
-        if (c != EOF) {
+        if (c != EOF && c != '\n') {
             std::string prodNum;
             double price;
             ifs >> prodNum >> price;
