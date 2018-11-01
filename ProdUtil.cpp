@@ -33,7 +33,7 @@ namespace w6 {
                 if (c == 'H' || c == 'P')
                     return new TaxableProduct(prodNum, price, c);
                 // invalid tax code throw error
-                std::string err = "Unrecognizeable Tax Code!";
+                std::string err = "Unrecognizable Tax Code!";
                 throw err;
             } else {
                 return new Product(prodNum, price);
